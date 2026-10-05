@@ -34,6 +34,9 @@
   --header-h: 4.5rem;
   --container-max: 84rem;
 
+  /* Hero'nun minimum yüksekliği (varsayılan / yedek değer) */
+  --hero-min-h: 34rem;
+
   --background: var(--ivory);
   --foreground: var(--ink);
 }
@@ -41,6 +44,17 @@
 @media (min-width: 1024px) {
   :root {
     --header-h: 7.75rem;
+  }
+}
+
+/* Hero, header'ın altında kalan ekranı tamamen kaplar.
+   `lvh` (largest viewport height) kullanılıyor: mobilde tarayıcı çubuğu
+   gizlendiğinde görünür alan büyür ve `svh`/`dvh` kullansaydık footer'ın
+   altında boş bir şerit kalırdı. `lvh` sabittir, kaydırma sırasında zıplama
+   yapmaz ve belge hiçbir zaman görünür alandan kısa kalmaz. */
+@supports (height: 100lvh) {
+  :root {
+    --hero-min-h: max(34rem, calc(100lvh - var(--header-h)));
   }
 }
 
@@ -134,11 +148,17 @@
        scrollbar sürükleme, hash bağlantıları) animasyonlu kaydırma, henüz
        yüklenmemiş görsellerin olduğu bölümlerde boşluklar bırakıyordu.
        Header `sticky` olduğu için menü her an erişilebilir kalıyor. */
+    /* Elastik kaydırma (rubber-band) ve pull-to-refresh kapalı: sayfa en alta
+       geldikten sonra biraz daha aşağı sürüklendiğinde footer altında beliren
+       boş şeridi ve iOS'taki aşağı çekme efektini engeller. */
+    overscroll-behavior-y: none;
+
     scroll-padding-top: calc(var(--header-h) + 1.5rem);
     -webkit-text-size-adjust: 100%;
   }
 
   body {
+    overscroll-behavior-y: none;
     background-color: var(--background);
     color: var(--foreground);
     font-family: var(--font-jost), ui-sans-serif, system-ui, sans-serif;

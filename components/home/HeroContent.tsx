@@ -114,7 +114,7 @@ export function HeroContent() {
       aria-roledescription="carousel"
       tabIndex={-1}
       onKeyDown={handleKeyDown}
-      className="relative isolate flex min-h-[34rem] w-full flex-col justify-end overflow-hidden bg-ink lg:min-h-[42rem]"
+      className="relative isolate flex min-h-(--hero-min-h) w-full flex-col justify-end overflow-hidden bg-ink"
     >
       {/* Görseller */}
       <div className="absolute inset-0 -z-10">
