@@ -154,13 +154,6 @@ export function Footer() {
           {/* Alt satır */}
           <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-gold-50/55 sm:flex-row sm:items-center sm:justify-between">
             <p>© {year} Safir Kır Düğün Salonları. Tüm hakları saklıdır.</p>
-
-            {/* TODO: Kullanım şartları ve gizlilik politikası sayfaları eklendiğinde
-                bu iki metni <Link> ile bağlayacağız. */}
-            <div className="flex items-center gap-6">
-              <span>Kullanım Şartları</span>
-              <span>Gizlilik Politikası</span>
-            </div>
           </div>
         </div>
       </div>
