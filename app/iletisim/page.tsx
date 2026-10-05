@@ -1,10 +1,13 @@
+import type { Metadata } from "next";
+
+import { ContactContent } from "@/components/iletisim/ContactContent";
+import { CONTACT_INFO } from "@/constants/data";
+
+export const metadata: Metadata = {
+  title: "İletişim | Safir Kır Düğün Salonları",
+  description: `Safir Kır Düğün Salonları iletişim bilgileri, harita ve randevu talebi. Adres: ${CONTACT_INFO.address} ${CONTACT_INFO.district}. Telefon: ${CONTACT_INFO.phoneDisplay} · ${CONTACT_INFO.mobileDisplay}`,
+};
+
 export default function IletisimPage() {
-  return (
-    <section className="bg-ivory py-24 lg:py-32">
-      <div className="container-site text-center">
-        <h1 className="text-4xl lg:text-5xl">İletişim</h1>
-        <p className="mt-6 text-ink-soft">Bu bölüm yakında hazırlanıyor.</p>
-      </div>
-    </section>
-  );
+  return <ContactContent />;
 }

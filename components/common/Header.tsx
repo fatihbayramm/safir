@@ -5,7 +5,7 @@ import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
 import { ROUTES } from "@/route";
 
-import { CONTACT_INFO } from "./contact";
+import { CONTACT_INFO } from "../../constants/data";
 
 /**
  * Site başlığı: logo alanı, masaüstü menü ve mobil hamburger menü.
@@ -22,18 +22,12 @@ export function Header() {
           <p>{CONTACT_INFO.workingHours}</p>
 
           <div className="flex items-center gap-7">
-            <a
-              href={CONTACT_INFO.phoneHref}
-              className="transition-colors duration-300 hover:text-gold-700"
-            >
+            <a href={CONTACT_INFO.phoneHref} className="transition-colors duration-300 hover:text-gold-700">
               {CONTACT_INFO.phoneDisplay}
             </a>
             <span className="h-3 w-px bg-gold-300" aria-hidden="true" />
-            <a
-              href={CONTACT_INFO.emailHref}
-              className="transition-colors duration-300 hover:text-gold-700"
-            >
-              {CONTACT_INFO.email}
+            <a href={CONTACT_INFO.mobileHref} className="transition-colors duration-300 hover:text-gold-700">
+              {CONTACT_INFO.mobileDisplay}
             </a>
           </div>
         </div>

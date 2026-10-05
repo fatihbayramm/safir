@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import { NAV_ITEMS, ROUTES } from "@/route";
 
-import { CONTACT_INFO } from "./contact";
+import { CONTACT_INFO } from "../../constants/data";
 
 const MENU_ID = "mobile-navigation";
 
@@ -94,10 +94,7 @@ export function MobileMenu() {
                       className="flex items-baseline justify-between py-4 font-display text-2xl text-ink transition-colors duration-300 hover:text-gold-700"
                     >
                       {item.label}
-                      <span
-                        className="size-1.5 shrink-0 self-center bg-gold-400"
-                        aria-hidden="true"
-                      />
+                      <span className="size-1.5 shrink-0 self-center bg-gold-400" aria-hidden="true" />
                     </Link>
                   </li>
                 ))}
@@ -112,16 +109,10 @@ export function MobileMenu() {
               </Link>
 
               <div className="mt-6 space-y-2 border-t border-line pt-5 text-sm text-ink-soft">
-                <a
-                  href={CONTACT_INFO.phoneHref}
-                  className="block transition-colors hover:text-gold-700"
-                >
+                <a href={CONTACT_INFO.phoneHref} className="block transition-colors hover:text-gold-700">
                   {CONTACT_INFO.phoneDisplay}
                 </a>
-                <a
-                  href={CONTACT_INFO.emailHref}
-                  className="block break-all transition-colors hover:text-gold-700"
-                >
+                <a href={CONTACT_INFO.emailHref} className="block break-all transition-colors hover:text-gold-700">
                   {CONTACT_INFO.email}
                 </a>
                 <p className="text-xs text-ink-soft/80">{CONTACT_INFO.workingHours}</p>
