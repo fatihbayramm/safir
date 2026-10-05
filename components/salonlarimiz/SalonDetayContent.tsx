@@ -3,12 +3,7 @@ import Link from "next/link";
 
 import { ROUTES } from "@/route";
 import { CONTACT_INFO, SALONS } from "../../constants/data";
-import {
-  ArrowRightIcon,
-  MapPinIcon,
-  PhoneIcon,
-  WhatsAppIcon,
-} from "../common/icons";
+import { ArrowRightIcon, MapPinIcon, PhoneIcon, WhatsAppIcon } from "../common/icons";
 
 type Salon = (typeof SALONS)[number];
 
@@ -44,52 +39,18 @@ export function SalonDetayContent({ salon }: { salon: Salon }) {
     <>
       {/* ------------------------------------------------------- Hero */}
       <section className="relative isolate flex min-h-[26rem] items-end overflow-hidden bg-ink sm:min-h-[30rem] lg:min-h-[34rem]">
-        <Image
-          src={salon.image}
-          alt={salon.alt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+        <Image src={salon.image} alt={salon.alt} fill priority sizes="100vw" className="object-cover object-center" />
 
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-ink/88 via-ink/55 to-ink/25"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/35"
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/88 via-ink/55 to-ink/25" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/35" aria-hidden="true" />
 
         <div className="container-site relative py-12 lg:py-16">
-          {/* Kırıntı yolu */}
-          <nav
-            aria-label="Site içi yol"
-            className="flex flex-wrap items-center gap-2 text-xs text-white/60"
-          >
-            <Link href={ROUTES.home} className="transition-colors hover:text-gold-300">
-              Ana Sayfa
-            </Link>
-            <span aria-hidden="true">/</span>
-            <Link
-              href={ROUTES.salonlarimiz}
-              className="transition-colors hover:text-gold-300"
-            >
-              Salonlarımız
-            </Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-gold-300">{salon.name}</span>
-          </nav>
-
           <p className="mt-8 flex items-center gap-3 text-[0.7rem] font-medium tracking-[0.34em] text-gold-300 uppercase">
             <span className="h-px w-8 bg-gold-400 sm:w-10" aria-hidden="true" />
             {salon.tagline}
           </p>
 
-          <h1 className="mt-5 text-4xl leading-none font-semibold text-white sm:text-5xl lg:text-6xl">
-            {salon.name}
-          </h1>
+          <h1 className="mt-5 text-4xl leading-none font-semibold text-white sm:text-5xl lg:text-6xl">{salon.name}</h1>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <span className="border border-gold-300/60 px-4 py-1.5 text-[0.62rem] font-medium tracking-[0.24em] text-gold-200 uppercase">
@@ -104,46 +65,30 @@ export function SalonDetayContent({ salon }: { salon: Salon }) {
           </div>
         </div>
 
-        <span
-          className="absolute inset-3 border border-gold-400/25 sm:inset-5"
-          aria-hidden="true"
-        />
+        <span className="absolute inset-3 border border-gold-400/25 sm:inset-5" aria-hidden="true" />
       </section>
 
       {/* ------------------------------------------- Açıklama + bilgiler */}
       <section className="bg-ivory py-16 lg:py-24">
         <div className="container-site grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
           <div>
-            <h2 className="text-3xl leading-tight sm:text-4xl">
-              {salon.name} Hakkında
-            </h2>
+            <h2 className="text-3xl leading-tight sm:text-4xl">{salon.name} Hakkında</h2>
 
-            <span
-              className="mt-6 block h-px w-20 bg-gradient-to-r from-gold-500 to-transparent"
-              aria-hidden="true"
-            />
+            <span className="mt-6 block h-px w-20 bg-gradient-to-r from-gold-500 to-transparent" aria-hidden="true" />
 
-            <p className="mt-6 text-sm leading-relaxed text-ink-soft sm:text-base">
-              {salon.description}
-            </p>
+            <p className="mt-6 text-sm leading-relaxed text-ink-soft sm:text-base">{salon.description}</p>
 
             <p className="mt-4 text-sm leading-relaxed text-ink-soft sm:text-base">
-              {salon.name}&apos;de masa yerleşimi, ikram menüsü, sahne ve ses
-              sistemi dâhil her detayı birlikte planlıyoruz. Salon turu sonrası
-              net bir teklif ve zaman planı sizinle paylaşılır.
+              {salon.name}&apos;de masa yerleşimi, ikram menüsü, sahne ve ses sistemi dâhil her detayı birlikte
+              planlıyoruz. Salon turu sonrası net bir teklif ve zaman planı sizinle paylaşılır.
             </p>
 
             {/* Hizmetler */}
             <ul className="mt-9 grid gap-x-10 gap-y-4 sm:grid-cols-2">
               {salon.features.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
-                  <span
-                    className="mt-2 size-1.5 shrink-0 rotate-45 bg-gold-500"
-                    aria-hidden="true"
-                  />
-                  <span className="text-sm leading-relaxed text-ink-soft">
-                    {feature}
-                  </span>
+                  <span className="mt-2 size-1.5 shrink-0 rotate-45 bg-gold-500" aria-hidden="true" />
+                  <span className="text-sm leading-relaxed text-ink-soft">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -209,9 +154,7 @@ export function SalonDetayContent({ salon }: { salon: Salon }) {
       <section className="bg-cream py-16 lg:py-20">
         <div className="container-site">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="text-3xl leading-tight sm:text-4xl">
-              {salon.name}&apos;den Kareler
-            </h2>
+            <h2 className="text-3xl leading-tight sm:text-4xl">{salon.name}&apos;den Kareler</h2>
             <span className="block h-px w-20 bg-gradient-to-r from-gold-500 to-transparent" aria-hidden="true" />
           </div>
 
@@ -241,12 +184,8 @@ export function SalonDetayContent({ salon }: { salon: Salon }) {
         <div className="container-site">
           <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <p className="text-[0.72rem] font-medium tracking-[0.3em] text-gold-600 uppercase">
-                Diğer Salonumuz
-              </p>
-              <h2 className="mt-4 text-3xl leading-tight sm:text-4xl">
-                {other.name}
-              </h2>
+              <p className="text-[0.72rem] font-medium tracking-[0.3em] text-gold-600 uppercase">Diğer Salonumuz</p>
+              <h2 className="mt-4 text-3xl leading-tight sm:text-4xl">{other.name}</h2>
               <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-soft">
                 {other.tagline} · {other.capacity}
               </p>
