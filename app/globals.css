@@ -97,6 +97,19 @@
   }
 }
 
+/** WhatsApp butonunun nabız animasyonu */
+@keyframes safir-pulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
 /* Hareket azaltma tercihi olan kullanıcılar için gizlenecek öğeler */
 @media (prefers-reduced-motion: reduce) {
   .safir-hide-reduced {
@@ -116,8 +129,11 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
-    /* sabit header'ın altında kalan başlıklar için boşluk */
+    /* Not: `scroll-behavior: smooth` BİLEREK kullanılmıyor.
+       Sayfanın en üstüne / en altına hızlıca gidildiğinde (Home / End tuşları,
+       scrollbar sürükleme, hash bağlantıları) animasyonlu kaydırma, henüz
+       yüklenmemiş görsellerin olduğu bölümlerde boşluklar bırakıyordu.
+       Header `sticky` olduğu için menü her an erişilebilir kalıyor. */
     scroll-padding-top: calc(var(--header-h) + 1.5rem);
     -webkit-text-size-adjust: 100%;
   }
@@ -160,10 +176,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
   *,
   *::before,
   *::after {

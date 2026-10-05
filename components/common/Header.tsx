@@ -3,7 +3,9 @@ import Link from "next/link";
 import { DesktopNav } from "./DesktopNav";
 import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
-import { CONTACT_INFO } from "./navigation";
+import { ROUTES } from "@/route";
+
+import { CONTACT_INFO } from "./contact";
 
 /**
  * Site başlığı: logo alanı, masaüstü menü ve mobil hamburger menü.
@@ -39,7 +41,7 @@ export function Header() {
 
       {/* Ana bar: logo | menü | randevu butonu */}
       <div className="container-site flex h-18 items-center justify-between gap-6 lg:h-22">
-        <Link href="/" className="shrink-0" aria-label="Safir Kır Düğün Salonları - Ana Sayfa">
+        <Link href={ROUTES.home} className="shrink-0" aria-label="Safir Kır Düğün Salonları - Ana Sayfa">
           <Logo />
         </Link>
 
@@ -47,7 +49,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="/iletisim"
+            href={ROUTES.iletisim}
             className="hidden border border-gold-500 px-6 py-2.5 text-[0.72rem] font-semibold tracking-[0.2em] text-gold-700 uppercase transition-colors duration-300 hover:bg-gold-500 hover:text-white sm:inline-block"
           >
             Randevu Al

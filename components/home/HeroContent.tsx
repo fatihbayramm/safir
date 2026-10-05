@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
+import { ROUTES } from "@/route";
+
 const AUTO_ADVANCE_MS = 5000;
 
 const SLIDES = [
@@ -182,13 +184,13 @@ export function HeroContent() {
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
-              href="/iletisim"
+              href={ROUTES.iletisim}
               className="inline-block bg-gold-500 px-8 py-4 text-center text-[0.74rem] font-semibold tracking-[0.2em] text-ink uppercase transition-colors duration-300 hover:bg-gold-400"
             >
               Randevu Al
             </Link>
             <Link
-              href="/salonlarimiz"
+              href={ROUTES.salonlarimiz}
               className="inline-block border border-white/45 px-8 py-4 text-center text-[0.74rem] font-semibold tracking-[0.2em] text-white uppercase transition-colors duration-300 hover:border-gold-300 hover:bg-gold-300 hover:text-ink"
             >
               Salonlarımız

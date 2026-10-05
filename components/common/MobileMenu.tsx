@@ -4,7 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { CONTACT_INFO, NAV_ITEMS } from "./navigation";
+import { NAV_ITEMS, ROUTES } from "@/route";
+
+import { CONTACT_INFO } from "./contact";
 
 const MENU_ID = "mobile-navigation";
 
@@ -102,7 +104,7 @@ export function MobileMenu() {
               </ul>
 
               <Link
-                href="/iletisim"
+                href={ROUTES.iletisim}
                 onClick={() => setIsOpen(false)}
                 className="mt-6 block bg-gold-500 py-3.5 text-center text-[0.78rem] font-semibold tracking-[0.2em] text-white uppercase transition-colors duration-300 hover:bg-gold-600"
               >

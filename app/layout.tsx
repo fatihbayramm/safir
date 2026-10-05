@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Jost } from "next/font/google";
 
 import { Footer } from "@/components/common/Footer";
 import { Header } from "@/components/common/Header";
+import { WhatsAppButton } from "@/components/common/WhatsAppButton";
 
 import "./globals.css";
 
@@ -28,14 +29,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="tr"
-      // Next.js'in route geçişlerinde smooth scroll'u devre dışı bırakabilmesi için
-      data-scroll-behavior="smooth"
       className={`${displayFont.variable} ${sansFont.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { NAV_ITEMS } from "./navigation";
+import { isActiveRoute, NAV_ITEMS } from "@/route";
 
 export function DesktopNav() {
   const pathname = usePathname();
@@ -12,9 +12,7 @@ export function DesktopNav() {
     <nav aria-label="Ana menü" className="hidden lg:block">
       <ul className="flex items-center gap-9">
         {NAV_ITEMS.map((item) => {
-          const isActive =
-            pathname === item.href ||
-            (item.href !== "/" && pathname.startsWith(`${item.href}/`));
+          const isActive = isActiveRoute(pathname, item.href);
 
           return (
             <li key={item.href}>

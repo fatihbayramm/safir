@@ -1,7 +1,9 @@
 import Link from "next/link";
 
 import { Logo } from "./Logo";
-import { CONTACT_INFO, NAV_ITEMS } from "./navigation";
+import { NAV_ITEMS, ROUTES } from "@/route";
+
+import { CONTACT_INFO } from "./contact";
 
 const BRAND_TEXT =
   "Doğayla iç içe, köylerimizde ve şehirlerimizde; nişanlar, düğünler ve tüm özel davetleriniz için zarafetle hazırlanmış salonlar.";
@@ -148,7 +150,7 @@ export function Footer() {
               </address>
 
               <Link
-                href="/iletisim"
+                href={ROUTES.iletisim}
                 className="mt-7 inline-block border border-gold-400/70 px-6 py-2.5 text-[0.72rem] font-semibold tracking-[0.2em] text-gold-200 uppercase transition-colors duration-300 hover:bg-gold-400 hover:text-ink"
               >
                 Randevu Al
