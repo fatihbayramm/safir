@@ -17,6 +17,10 @@ export const ROUTES = {
   home: "/",
   /** Salonlarımız — app/salonlarimiz/page.tsx */
   salonlarimiz: "/salonlarimiz",
+  /** Lal Salonu — app/salonlarimiz/lal/page.tsx */
+  lalSalonu: "/salonlarimiz/lal",
+  /** İnci Salonu — app/salonlarimiz/inci/page.tsx */
+  inciSalonu: "/salonlarimiz/inci",
   /** Kurumsal — app/kurumsal/page.tsx */
   kurumsal: "/kurumsal",
   /** Hizmetlerimiz — app/hizmetlerimiz/page.tsx */

@@ -1,4 +1,6 @@
 /** Site genelinde kullanılan iletişim bilgileri (telefon, e-posta, adres, harita) */
+import { ROUTES } from "@/route";
+
 export const CONTACT_INFO = {
   /** Sabit telefon */
   phoneDisplay: "(0266) 221 80 82",
@@ -36,3 +38,49 @@ export const MAP_EMBED_URL = `https://www.google.com/maps?q=${encodeURIComponent
 
 /** Adresi tek satırda göstermek için */
 export const FULL_ADDRESS = `${CONTACT_INFO.address}, ${CONTACT_INFO.district}`;
+
+/* -------------------------------------------------------------------------- */
+/* Salonlar                                                                    */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * TODO: Kapasite ve hizmet bilgileri kurumsal verilerle doğrulandıktan sonra
+ * güncellenmelidir. Salon detay sayfaları eklendiğinde `route.ts` içindeki
+ * ROUTES sözlüğüne ilgili route anahtarları da eklenebilir.
+ */
+export const SALONS = [
+  {
+    id: "lal",
+    name: "Lal Salonu",
+    href: ROUTES.lalSalonu,
+    tagline: "Bahçe & Açık Hava Salonu",
+    image: "/images/safir_hero_1.jpeg",
+    alt: "Geniş bahçede yuvarlak masalarla kurulmuş açık hava düğün alanının görünümü",
+    capacity: "100 – 700 Kişi",
+    description:
+      "Ağaçların arasına yayılan geniş bahçemiz, yaz düğünleri için en çok tercih edilen alanımız. Dağıtık masa düzeniyle her misafirinizi doğayla iç içe ağırlıyoruz.",
+    features: [
+      "Doğayla iç içe geniş bahçe",
+      "Ücretsiz otopark ve ulaşım",
+      "Sahne, dans pisti ve DJ alanı",
+      "Akşamüstü bahçe aydınlatması",
+    ],
+  },
+  {
+    id: "inci",
+    name: "İnci Salonu",
+    href: ROUTES.inciSalonu,
+    tagline: "Kapalı & Kışlık Salon",
+    image: "/images/safir_hero_5.jpg",
+    alt: "Çim bahçede masalarla ve sahne alanıyla hazırlanmış düğün salonu",
+    capacity: "100 – 350 Kişi",
+    description:
+      "Yağmurlu ya da serin günler için üstü kapalı salonumuz; ısıtma, aydınlatma ve yağmur planıyla bütün mevsimlerde aynı konforu sunar.",
+    features: [
+      "Tüm mevsimlerde kapalı alan",
+      "Isıtma ve havalandırma sistemi",
+      "Kendi sahne ve dans pisti",
+      "Nişan ve düğün aynı gün planlaması",
+    ],
+  },
+] as const;

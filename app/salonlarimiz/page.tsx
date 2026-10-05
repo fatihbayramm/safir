@@ -1,10 +1,13 @@
+import type { Metadata } from "next";
+
+import { SalonlarimizContent } from "@/components/salonlarimiz/SalonlarimizContent";
+
+export const metadata: Metadata = {
+  title: "Salonlarımız | Safir Kır Düğün Salonları",
+  description:
+    "Lal Salonu ve İnci Salonu: açık hava bahçe salonu ve kapalı kışlık salon. Kapasiteler, hizmetler ve randevu bilgileri.",
+};
+
 export default function SalonlarimizPage() {
-  return (
-    <section className="bg-ivory py-24 lg:py-32">
-      <div className="container-site text-center">
-        <h1 className="text-4xl lg:text-5xl">Salonlarımız</h1>
-        <p className="mt-6 text-ink-soft">Bu bölüm yakında hazırlanıyor.</p>
-      </div>
-    </section>
-  );
+  return <SalonlarimizContent />;
 }
