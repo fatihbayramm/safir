@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Safir Kır Düğün Salonları — Tema Değişkenleri
+   Ana renkler: Altın sarısı + Beyaz
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Altın sarısı tonları --- */
+  --gold-50: #fbf8f0;
+  --gold-100: #f6efdd;
+  --gold-200: #eddfbb;
+  --gold-300: #e0cb92;
+  --gold-400: #d2b46a;
+  --gold-500: #c9a227; /* ana altın rengi */
+  --gold-600: #b08a1f;
+  --gold-700: #8b6a17;
+  --gold-800: #6a4f13;
+  --gold-900: #4a380e;
+  --gold-950: #2a2009;
+
+  /* --- Beyaz / kırık beyaz nötrler --- */
+  --white: #ffffff;
+  --ivory: #fdfbf6; /* sayfa arka planı */
+  --cream: #f6f1e7; /* bölüm arka planı */
+
+  /* --- Metin ve çizgi renkleri --- */
+  --ink: #221e19; /* başlıklar */
+  --ink-soft: #6e655a; /* gövde metni */
+  --line: #e7dfce; /* ince çizgiler */
+
+  /* --- Ölçüler --- */
+  /* Header yüksekliği: ana bar + (masaüstünde) üst bilgi şeridi */
+  --header-h: 4.5rem;
+  --container-max: 84rem;
+
+  --background: var(--ivory);
+  --foreground: var(--ink);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 1024px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --header-h: 7.75rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Tailwind v4: değişkenleri utility sınıflarına bağla
+   (bg-gold-500, text-ink, border-line, font-display ...) */
+@theme inline {
+  --color-gold-50: var(--gold-50);
+  --color-gold-100: var(--gold-100);
+  --color-gold-200: var(--gold-200);
+  --color-gold-300: var(--gold-300);
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+  --color-gold-800: var(--gold-800);
+  --color-gold-900: var(--gold-900);
+  --color-gold-950: var(--gold-950);
+
+  --color-white: var(--white);
+  --color-ivory: var(--ivory);
+  --color-cream: var(--cream);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+}
+
+/* --------------------------------------------------------------------------
+   Site geneli konteyner (container + yatay iç boşluk)
+   -------------------------------------------------------------------------- */
+@utility container-site {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* sabit header'ın altında kalan başlıklar için boşluk */
+    scroll-padding-top: calc(var(--header-h) + 1.5rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-cormorant), ui-serif, Georgia, serif;
+    color: var(--ink);
+  }
+
+  ::selection {
+    background-color: var(--gold-200);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold-500);
+    outline-offset: 3px;
+  }
+
+  /* Mobil menü açıkken arkadaki sayfanın kaymasını engelle */
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
