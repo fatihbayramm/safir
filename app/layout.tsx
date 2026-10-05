@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 
-import { Header } from "@/components/common/Header";
 import { Footer } from "@/components/common/Footer";
+import { Header } from "@/components/common/Header";
 
 import "./globals.css";
 
@@ -26,7 +26,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="tr" className={`${displayFont.variable} ${sansFont.variable} h-full antialiased`}>
+    <html
+      lang="tr"
+      // Next.js'in route geçişlerinde smooth scroll'u devre dışı bırakabilmesi için
+      data-scroll-behavior="smooth"
+      className={`${displayFont.variable} ${sansFont.variable} h-full antialiased`}
+    >
       <body className="flex min-h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>

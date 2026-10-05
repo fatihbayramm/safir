@@ -75,6 +75,36 @@
 }
 
 /* --------------------------------------------------------------------------
+   Hero slider animasyonları
+   -------------------------------------------------------------------------- */
+@keyframes safir-hero-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes safir-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hareket azaltma tercihi olan kullanıcılar için gizlenecek öğeler */
+@media (prefers-reduced-motion: reduce) {
+  .safir-hide-reduced {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Site geneli konteyner (container + yatay iç boşluk)
    -------------------------------------------------------------------------- */
 @utility container-site {
@@ -116,6 +146,11 @@
   :focus-visible {
     outline: 2px solid var(--gold-500);
     outline-offset: 3px;
+  }
+
+  /* Tüm butonlarda işaretçi olsun */
+  button:not(:disabled) {
+    cursor: pointer;
   }
 
   /* Mobil menü açıkken arkadaki sayfanın kaymasını engelle */
